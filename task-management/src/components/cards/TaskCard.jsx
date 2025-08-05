@@ -4,7 +4,7 @@ const TaskCard = () => {
     <div className='flex flex-col bg-[#05131f] w-[100%] border-1 border-[#05131f] rounded-2xl p-3 mt-2 mb-4'>
       <h3 className="flex my-2 items-center gap-2">
         <img src="/Check.svg" className="border rounded-full w-4 h-4 invert"/>
-        <span className="font-bold text-lg">Infographics or Productivity</span>
+        <button className="font-bold text-lg cursor-pointer">Infographics or Productivity</button>
       </h3>
       <h3 className="font-semibold text-md text-[#05131f] bg-blue-300 rounded-full py-1/2 text-center w-[15%] mt-3">Blog</h3>
       <h3 className="font-bold text-xl mt-3">Huzaifa</h3>

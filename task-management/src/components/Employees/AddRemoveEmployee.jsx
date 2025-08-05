@@ -3,16 +3,16 @@ import React from 'react'
 const AddRemoveEmployee = () => {
     return (
         <div className=''>
-            <div className='fixed z-1 bg-black/50 top-0 left-0 w-full h-full flex items-center justify-center gap-10'>
+            <div className='fixed z-1 bg-black/50 top-0 left-0 w-full h-full flex items-center justify-center gap-10 hidden'>
                 <div className="h-[90vh] w-[35%] max-w-2xl bg-[#05131f] rounded-lg shadow-lg p-6">
                     <div className='flex gap-5 items-center mb-4'>
-                        <button className='bg-blue-300 text-[#05131f] text-center px-5 py-1 rounded-lg font-bold'>Add Employee</button>
-                        <button className='bg-[#223040] text-blue-300 text-center px-5 py-1 rounded-lg'>Remove Employee</button>
+                        <button className='bg-blue-300 text-[#05131f] text-center px-5 py-1 rounded-lg font-bold cursor-pointer'>Add Employee</button>
+                        <button className='bg-[#223040] text-blue-300 text-center px-5 py-1 rounded-lg cursor-pointer'>Remove Employee</button>
                     </div>
 
                     <div className='w-[100%] h-[1px] bg-blue-300/30 mx-auto mt-8 mb-5'></div>
 
-                    <div className='h-[87vh] overflow-y-auto placeholder:text-blue-300 hidden'>
+                    <div className='h-[87vh] overflow-y-auto placeholder:text-blue-300'>
                         <div className='flex gap-7'>
                             <div className='w-[47%]'>
                                 <h2 className='text-blue-300'>First Name</h2>
@@ -38,7 +38,7 @@ const AddRemoveEmployee = () => {
                         <button className='w-full bg-yellow-500 cursor-pointer text-[#05131f] rounded-lg py-2'>Add</button>
                     </div>
 
-                    <div className='h-[87vh] overflow-y-auto placeholder:text-blue-300'>
+                    <div className='h-[87vh] overflow-y-auto placeholder:text-blue-300 hidden'>
                         <div className='flex gap-7'>
                             <div className='w-[47%]'>
                                 <h2 className='text-blue-300'>First Name</h2>
@@ -53,12 +53,12 @@ const AddRemoveEmployee = () => {
                         <input type="text" className='text-yellow-500 w-full focus:outline-none focus:ring-0 border-b border-b-1 border-b-blue-300 pb-1 mb-5' />
 
                         <h2 className='text-blue-300'>Reason</h2>
-                        <textarea className='border border-1 border-blue-300 text-yellow-500 w-full focus:outline-none focus-ring-0 h-[27vh] mt-2 rounded-lg p-2 mb-5 overflow-y-auto'></textarea>
-                        <button className='w-full bg-yellow-500 cursor-pointer text-[#05131f] rounded-lg py-2'>Add</button>
+                        <textarea className='resize-none border border-1 border-blue-300 text-yellow-500 w-full focus:outline-none focus-ring-0 h-[27vh] mt-2 rounded-lg p-2 mb-5 overflow-y-auto'></textarea>
+                        <button className='w-full bg-blue-300 cursor-pointer text-[#05131f] rounded-lg py-2'>Add</button>
                     </div>
                 </div>
 
-                <div className="bg-[#05131f] w-[20vw] rounded-xl border-blue-300 border-1 hidden">
+                <div className="bg-[#05131f] w-[20vw] rounded-xl border-blue-300 border-1">
                     <div className="w-[75px] h-[75px] bg-blue-300 rounded-full mx-auto">
                         <img src="/Person.svg" alt="" width="70px" className="mx-auto mt-7" />
                     </div>

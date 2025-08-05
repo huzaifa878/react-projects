@@ -1,6 +1,6 @@
 import Help from "./Help"
 import Search from "./Search"
-import AddTask from "../Forms/AddTask"
+import Add from "../Forms/Add"
 import Notification from "./Notification"
 
 const AdminHeader = () => {
@@ -22,7 +22,7 @@ const AdminHeader = () => {
                 <Search />
                 <Help />
                 <Notification />
-                <AddTask />
+                <Add />
 
 
             </div>
