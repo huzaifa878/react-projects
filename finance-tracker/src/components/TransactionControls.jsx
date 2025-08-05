@@ -1,4 +1,3 @@
-import React from "react";
 
 const TransactionControls = ({
   categories,
@@ -11,7 +10,6 @@ const TransactionControls = ({
 }) => {
   return (
     <div className="max-w-md mx-auto my-4 space-y-4 text-white">
-      {/* 🔍 Search Input */}
       <input
         type="text"
         placeholder="Search by description"
@@ -20,7 +18,6 @@ const TransactionControls = ({
         className="w-full px-3 py-2 bg-zinc-800 border border-zinc-700 rounded placeholder-gray-400"
       />
 
-      {/* 🔽 Sort Dropdown */}
       <select
         value={sortOption}
         onChange={(e) => onSort(e.target.value)}
