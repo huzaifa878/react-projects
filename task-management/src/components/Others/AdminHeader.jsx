@@ -2,8 +2,16 @@ import Help from "./Help"
 import Search from "./Search"
 import Add from "../Forms/Add"
 import Notification from "./Notification"
+import { useNavigate } from "react-router-dom"
 
 const AdminHeader = () => {
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        navigate('/')
+    }
+
     return (
         <nav className="flex justify-between align-center px-5 py-2 bg-[#05131f] items-center">
             <div className="flex justify-start align-center gap-2">
@@ -23,8 +31,7 @@ const AdminHeader = () => {
                 <Help />
                 <Notification />
                 <Add />
-
-
+                <button onClick={handleLogout} className="cursor-pointer py-[6px] px-5 rounded-lg bg-blue-300 text-[#05131f] font-semibold">Logout</button>
             </div>
         </nav>
     )
