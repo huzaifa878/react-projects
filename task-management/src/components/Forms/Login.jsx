@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
 
   const navigate = useNavigate()
-  const { authData } = useContext(AuthContext);
+  const { authData, dispatch } = useContext(AuthContext);
 
   const [formData, setFormData] = useState({
     username: "",
@@ -24,8 +24,16 @@ const Login = () => {
     authData.find(user => {
       if (user.userName === formData.username && user.email === formData.email) {
         if (user.role === 'admin') {
+          dispatch({
+            type: "LOGIN_INFO",
+            payload: user
+          })
           navigate('/adminDashboard/admin')
         } else {
+          dispatch({
+            type: "LOGIN_INFO",
+            payload: user
+          })
           navigate('/Dashboard')
         }
       }

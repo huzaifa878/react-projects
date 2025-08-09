@@ -3,12 +3,20 @@ import Search from "./Search"
 import Add from "../Forms/Add"
 import Notification from "./Notification"
 import { useNavigate } from "react-router-dom"
+import { AuthContext } from "../../context/AuthContext"
+import { useContext } from "react"
+import { Link } from "react-router-dom"
 
 const AdminHeader = () => {
+
+    const { dispatch } = useContext(AuthContext)
 
     const navigate = useNavigate();
 
     const handleLogout = () => {
+        dispatch({
+            type: "LOGOUT"
+        })
         navigate('/')
     }
 
@@ -19,10 +27,10 @@ const AdminHeader = () => {
                 <div>
                     <h2 className="text-blue-300 font-bold text-3xl mb-2 mt-2">LoopCraft</h2>
                     <ul className="flex text-blue-300 gap-5">
-                        <li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Tasks</li>
-                        <li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Board</li>
-                        <li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Employees</li>
-                        <li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Calendar</li>
+                        <Link to="/AdminDashboard/admin/tasks"><li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Tasks</li></Link>
+                        <Link to="/AdminDashboard/admin/board"><li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Board</li></Link>
+                        <Link to="/AdminDashboard/admin/employee"><li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Employees</li></Link>
+                        <Link to="/AdminDashboard/admin/calendar"><li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Calendar</li></Link>
                     </ul>
                 </div>
             </div>
