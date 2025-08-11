@@ -8,7 +8,7 @@ const AdminTasks = () => {
                 <img src="/Search.svg" className='invert px-3 py-2 w-13' />
                 <input type="text" className='focus:outline-none pr-3' placeholder='Search by Task name'/>
             </div>
-            <div className=''>
+            <div>
                 <TasksList />
             </div>
         </div>

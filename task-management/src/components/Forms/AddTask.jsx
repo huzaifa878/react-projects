@@ -14,7 +14,8 @@ const AddTask = ({ addTask, setAddTask }) => {
         description: "",
         startDate: new Date().toISOString().split("T")[0],
         endDate: "",
-        status: "asign"
+        status: "asign",
+        subTasks: []
     })
 
 
@@ -28,7 +29,6 @@ const AddTask = ({ addTask, setAddTask }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(formData)
 
         dispatch({
             type: "ADD_TASK",
@@ -37,11 +37,11 @@ const AddTask = ({ addTask, setAddTask }) => {
 
         setFormData({
             taskName: "",
-        category: "",
-        asignTo: "",
-        description: "",
-        startDate: "",
-        endDate: ""
+            category: "",
+            asignTo: "",
+            description: "",
+            startDate: "",
+            endDate: ""
         })
 
     }

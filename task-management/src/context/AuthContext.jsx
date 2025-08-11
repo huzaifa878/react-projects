@@ -65,7 +65,7 @@ const authData = [
 const loginData = []
 
 const initialState = {
-    authData : JSON.parse(localStorage.getItem('authData')),
+    authData : JSON.parse(localStorage.getItem('authData')) || authData,
     loginData : loginData,
 }
 
