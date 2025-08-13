@@ -8,7 +8,7 @@ const taskData = [
         asignTo: "Huzaifa",
         description: "Just build a best portal in minimal line of codes",
         startDate: new Date().toISOString().split("T")[0],
-        endDate: "12-08-2025",
+        endDate: "2025-08-10",
         status: "asign",
         subTasks: [
             { title: "Develop UI", isCompleted: false },
@@ -22,7 +22,7 @@ const taskData = [
         asignTo: "Nashrah",
         description: "Build a simple looking landing page",
         startDate: new Date().toISOString().split("T")[0],
-        endDate: "12-08-2025",
+        endDate: "2025-08-10",
         status: "working",
         subTasks: [
             { title: "Design a navbar", isCompleted: true },
@@ -37,7 +37,7 @@ const taskData = [
         asignTo: "Ayesha",
         description: "Create an awareness video of our new app creation",
         startDate: new Date().toISOString().split("T")[0],
-        endDate: "12-08-2025",
+        endDate: "2025-08-10",
         status: "working",
         subTasks: [
             { title: "Collect features of App", isCompleted: true },
@@ -51,7 +51,7 @@ const taskData = [
         asignTo: "Sara",
         description: "Check the Requirement",
         startDate: new Date().toISOString().split("T")[0],
-        endDate: "12-08-2025",
+        endDate: "2025-08-10",
         status: "completed",
         subTasks: [
             { title: "Check the features", isCompleted: true }
@@ -64,7 +64,7 @@ const taskData = [
         asignTo: "Ahmed",
         description: "Design a full plan of the software development",
         startDate: new Date().toISOString().split("T")[0],
-        endDate: "12-08-2025",
+        endDate: "2025-08-10",
         status: "completed",
         subTasks: [
             { title: "Create outline", isCompleted: true },
@@ -98,6 +98,29 @@ const tasksReducer = (state, action) => {
                         : t
                 )
             }
+        case "UPDATE_TASK":
+            return {
+                ...state,
+                tasks: state.tasks.map(task =>
+                    task.taskId === action.payload.taskId
+                        ? { ...task, ...action.payload }
+                        : task
+                )
+            };
+        case "REMOVE_TASK":
+            console.log(action.payload)
+            return {
+                ...state,
+                tasks: state.tasks.map(task =>
+                    task.taskId === action.payload.taskId
+                        ? {
+                            ...task,
+                            subTasks: task.subTasks.filter(subTask => subTask.title != action.payload.title)
+                        }
+                        : task
+                )
+            }
+
         default:
             return state
     }
@@ -110,6 +133,12 @@ export const TasksProvider = ({ children }) => {
     const [state, dispatch] = useReducer(tasksReducer, initialData)
 
     useEffect(() => {
+        state.tasks.forEach(task => {
+            const allCompleted = task.subTasks.every(subTask => subTask.isCompleted === true);
+            if (allCompleted) {
+                task.status = "completed";
+            }
+        });
         localStorage.setItem('taskData', JSON.stringify(state.tasks))
 
     }, [state.tasks])

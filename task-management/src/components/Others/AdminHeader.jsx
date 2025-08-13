@@ -4,10 +4,15 @@ import Add from "../Forms/Add"
 import Notification from "./Notification"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/AuthContext"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
+import { useLocation } from 'react-router-dom';
 
 const AdminHeader = () => {
+
+    const { pathname } = useLocation()
+    const parts = pathname.split('/')
+    const page = parts[3] || "tasks"
 
     const { dispatch } = useContext(AuthContext)
 
@@ -27,10 +32,18 @@ const AdminHeader = () => {
                 <div>
                     <h2 className="text-blue-300 font-bold text-3xl mb-2 mt-2">LoopCraft</h2>
                     <ul className="flex text-blue-300 gap-5">
-                        <Link to="/AdminDashboard/admin/tasks"><li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Tasks</li></Link>
-                        <Link to="/AdminDashboard/admin/board"><li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Board</li></Link>
-                        <Link to="/AdminDashboard/admin/employee"><li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Employees</li></Link>
-                        <Link to="/AdminDashboard/admin/calendar"><li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Calendar</li></Link>
+                        <Link to="/AdminDashboard/admin/tasks">
+                            <li
+                                className={`${page == "tasks" && "border-blue-300"} ${page != "tasks" && "border-transparent"} cursor-pointer border-b-2 hover:border-blue-300 transition-colors duration-300`}>Tasks</li></Link>
+                        <Link to="/AdminDashboard/admin/board">
+                            <li
+                                className={`${page == "board" && "border-blue-300"} ${page != "board" && "border-transparent"} cursor-pointer border-b-2 hover:border-blue-300 transition-colors duration-300`}>Board</li></Link>
+                        <Link to="/AdminDashboard/admin/employee">
+                            <li
+                                className={`${page == "employee" && "border-blue-300"} ${page != "employee" && "border-transparent"} cursor-pointer border-b-2 hover:border-blue-300 transition-colors duration-300`}>Employees</li></Link>
+                        <Link to="/AdminDashboard/admin/calendar">
+                            <li
+                                className={`${page == "calendar" && "border-blue-300"} ${page != "calendar" && "border-transparent"} cursor-pointer border-b-2 hover:border-blue-300 transition-colors duration-300`}>Calendar</li></Link>
                     </ul>
                 </div>
             </div>
