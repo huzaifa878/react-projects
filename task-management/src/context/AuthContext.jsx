@@ -2,71 +2,102 @@ import { createContext, useEffect, useReducer } from "react"
 
 const authData = [
     {
-
         userID: 0,
         userName: "Admin",
         role: "admin",
         email: "admin@gmail.com",
         password: "Admin123",
         phoneNumber: "033312345678",
+        position: "Team Lead"
     },
     {
-
         userID: 1,
         userName: "Huzaifa",
         role: "employee",
         email: "huzaifa@gmail.com",
         password: "Huzaifa123",
         phoneNumber: "033387654321",
-        positoin: "Frontend Engineer",
+        position: "Frontend Engineer",
     },
     {
-
         userID: 2,
         userName: "Ayesha",
         role: "employee",
         email: "ayesha@gmail.com",
         password: "Ayesha123",
         phoneNumber: "022212345678",
-        positoin: "Backend Engineer",
+        position: "Backend Engineer",
     },
     {
-
         userID: 3,
         userName: "Ahmed",
         role: "employee",
         email: "ahmed@gmail.com",
         password: "Ahmed123",
         phoneNumber: "022287654321",
-        positoin: "Python Developer",
+        position: "Python Developer",
     },
     {
-
         userID: 4,
         userName: "Sara",
         role: "employee",
         email: "sara@gmail.com",
         password: "Sara123",
         phoneNumber: "011112345678",
-        positoin: "Full Stack Developer",
+        position: "Full Stack Developer",
     },
     {
-
         userID: 5,
         userName: "Ali",
         role: "employee",
         email: "ali@gmail.com",
         password: "Ali123",
         phoneNumber: "01118765432",
-        positoin: "Graphic Designer",
+        position: "Graphic Designer",
+    },
+    {
+        userID: 6,
+        userName: "Zain",
+        role: "employee",
+        email: "zain@gmail.com",
+        password: "Zain123",
+        phoneNumber: "034512345678",
+        position: "Mobile App Developer",
+    },
+    {
+        userID: 7,
+        userName: "Hira",
+        role: "employee",
+        email: "hira@gmail.com",
+        password: "Hira123",
+        phoneNumber: "032112345678",
+        position: "UI/UX Designer",
+    },
+    {
+        userID: 8,
+        userName: "Bilal",
+        role: "employee",
+        email: "bilal@gmail.com",
+        password: "Bilal123",
+        phoneNumber: "030112345678",
+        position: "DevOps Engineer",
+    },
+    {
+        userID: 9,
+        userName: "Fatima",
+        role: "employee",
+        email: "fatima@gmail.com",
+        password: "Fatima123",
+        phoneNumber: "031112345678",
+        position: "QA Engineer",
     }
-]
+];
 
-const loginData = []
+
 
 const initialState = {
     authData : JSON.parse(localStorage.getItem('authData')) || authData,
-    loginData : loginData,
+    loginData : JSON.parse(localStorage.getItem('loginData'))
 }
 
 const authReducer = (state, action) => {

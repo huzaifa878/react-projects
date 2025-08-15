@@ -5,11 +5,16 @@ import Search from "../Others/Search"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../../context/AuthContext"
 import { useContext } from "react"
+import { Link } from "react-router-dom"
+import { useLocation } from "react-router-dom"
+
+
 
 const EmployeeHeader = () => {
-    const { dispatch } = useContext(AuthContext)
-
+    const { dispatch, loginData } = useContext(AuthContext)
     const navigate = useNavigate();
+    const { pathname } = useLocation()
+    const parts = pathname.split('/')[2] || "task"
 
     const handleLogout = () => {
         dispatch({
@@ -26,18 +31,22 @@ const EmployeeHeader = () => {
                 <div>
                     <h2 className="text-blue-300 font-bold text-3xl mb-2 mt-2">LoopCraft</h2>
                     <ul className="flex text-blue-300 gap-5">
-                        <li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Tasks</li>
-                        <li className="cursor-pointer border-b-2 border-transparent hover:border-blue-300 transition-colors duration-300">Calendar</li>
+                        <Link 
+                        to="/Dashboard/task"
+                        className={`${parts != "task" && "border-transparent"} cursor-pointer border-b-2 hover:border-blue-300 transition-colors duration-300`}
+                        >Tasks</Link>
+                        <Link
+                        to="/Dashboard/calendar" 
+                        className={`${parts != "calendar" && "border-transparent"} cursor-pointer border-b-2 hover:border-blue-300 transition-colors duration-300`}
+                        >Calendar</Link>
                     </ul>
                 </div>
             </div>
             <div>
-                <h1 className="font-bold text-2xl text-blue-300">Huzaifa Mateen</h1>
+                <h1 className="font-bold text-2xl text-blue-300">{loginData.userName}</h1>
             </div>
             <div className="flex gap-3 items-center">
-            <Help />
-            <Notification />
-            <button className="bg-blue-300 text-[#05131f] px-4 py-1 rounded-lg" onClick={handleLogout}>Log Out</button>
+            <button className="bg-blue-300 text-[#05131f] px-4 py-1 rounded-lg cursor-pointer" onClick={handleLogout}>Log Out</button>
 
 
             </div>

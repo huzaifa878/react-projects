@@ -48,9 +48,6 @@ const AdminHeader = () => {
                 </div>
             </div>
             <div className="flex gap-3 items-center">
-                <Search />
-                <Help />
-                <Notification />
                 <Add />
                 <button onClick={handleLogout} className="cursor-pointer py-[6px] px-5 rounded-lg bg-blue-300 text-[#05131f] font-semibold">Logout</button>
             </div>

@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState } from 'react'
 import TasksList from './TasksList'
 
@@ -15,7 +14,6 @@ const AdminTasks = () => {
         } else{
             setFilterTasks("All")
         }
-        console.log(filterTasks)
     }
 
 

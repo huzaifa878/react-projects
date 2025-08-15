@@ -7,6 +7,9 @@ import AdminTasks from "./components/Others/AdminTasks"
 import AdminBoard from "./components/Others/AdminBoard"
 import AdminEmployeeBoard from "./components/Others/AdminEmployeeBoard"
 import Calendar from "./components/Others/Calendar"
+import EmployeeHeader from "./components/Employees/EmployeeHeader"
+import EmployeeTasks from "./components/Employees/EmployeeTasks"
+import UserCalendar from "./components/Others/UserCalendar"
 
 const routes = createBrowserRouter([
   {
@@ -16,6 +19,14 @@ const routes = createBrowserRouter([
   {
     path: "/Dashboard",
     element: <><UserDashboard /></>
+  },
+  {
+    path: "/Dashboard/task",
+    element: <><EmployeeHeader /><EmployeeTasks /></>
+  },
+  {
+    path: "/Dashboard/calendar",
+    element: <><EmployeeHeader /><UserCalendar /></>
   },
   {
     path: "/AdminDashboard/admin",

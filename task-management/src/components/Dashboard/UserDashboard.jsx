@@ -8,7 +8,6 @@ const UserDashboard = () => {
     <div>
       <EmployeeHeader />
       <EmployeeTasks />
-      {/* <Calendar /> */}
     </div>
   )
 }

@@ -129,7 +129,7 @@ const TasksList = ({ filterTasks, setFilterTasks, searchValue }) => {
                     <span>{task.taskName}</span>
                   </button>)}
 
-                {(filterTasks == "Search" && task.taskName.toLowerCase().includes(searchValue)) && (
+                {(filterTasks == "Search" && task.taskName.toLowerCase().includes(searchValue.toLowerCase())) && (
                   <button
                     className={`flex items-center gap-2 bg-blue-300 w-[90%] mx-auto rounded-md p-2 my-3 font-semibold cursor-pointer transform transition-transform duration-200 hover:scale-105 ${taskSelected?.taskName == task.taskName && "scale-105"}`}
                     onClick={() => {
